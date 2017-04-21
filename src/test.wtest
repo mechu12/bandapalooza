@@ -1,0 +1,58 @@
+
+import hendrix.*
+import mccartney.*
+import charly.*
+import lennon.*
+
+test "Si consulta la hablidad en canto de john, actualmente es de 70" {
+
+	assert.equals(70,johnLennon.habilidadEnCanto())
+
+}
+
+test "jimiHendrix toca con johnLennon ya que su habilidad en piano de ambos no es igual a cero"{
+	
+	
+	
+	assert.that(jimiHendrix.tocaConOtroMusico(johnLennon))
+	
+}
+
+
+test" nivel de descontrol de jimi actual es cero"{
+	
+	assert.equals(0,jimiHendrix.nivelDescontrol())
+}
+
+test"john tiene una hablidad mayor a cero que jimi "{
+	
+	
+	assert.that(johnLennon.algunaHablidadMayorAcero(jimiHendrix))
+	
+	
+}
+
+test " si yoko esta cerca carisma baja a 64"{
+	
+	yoko.caminar(50)
+	johnLennon.modificaHabilidadCarisma()
+	
+	
+	assert.equals(64,johnLennon.habilidadEnCarisma())
+}
+
+
+test " paul toca con john x q tiene la hablidad canto mayor a la de el"{
+	
+	assert.that(paulMcCartney.tocaConOtroMusico(johnLennon))
+	
+}
+
+test " charly NO toca con john si su nivel de humor es MENOR a 0.8"{
+	
+	charlyGarcia.nivelDeHumor()
+
+	
+	assert.notThat(charlyGarcia.tocaConOtroMusico(johnLennon))
+	
+}
