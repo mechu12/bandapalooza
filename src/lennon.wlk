@@ -2,10 +2,11 @@ import charly.*
 import gunsroses.*
 import hendrix.*
 import thebeatles.*
+
 object habilidadCantoLennon {
 	var musico = lennon
 	var nombre = "canto"
-	var valor = 30
+	var valor = 70
 	method getValor(){
 		return valor * musico.porcentaje()
 	}
@@ -14,66 +15,72 @@ object habilidadCantoLennon {
 	}
 }
 object habilidadGuitarraLennon {
+	var musico = lennon
 	var nombre = "guitarra"
 	var valor = 40
 	
 	method getValor(){
-		return valor
+		return valor * musico.porcentaje()
 	}
 	method getNombre() {
 		return nombre
 	}
 }
 object habilidadBateriaLennon {
+	var musico = lennon
 	var nombre = "bateria"
 	var valor = 0
 	
 	method getValor(){
-		return valor
+		return valor * musico.porcentaje()
 	}
 	method getNombre() {
 		return nombre
 	}
 }
 object habilidadBajoLennon {
+	var musico = lennon
 	var nombre = "bajo"
 	var valor = 60
 	
 	method getValor(){
-		return valor
+		return valor * musico.porcentaje()
 	}
 	method getNombre() {
 		return nombre
 	}
 }
 object habilidadPianoLennon {
+	var musico = lennon
 	var nombre = "piano"
 	var valor = 50
 	
 	method getValor(){
-		return valor
+		return valor * musico.porcentaje()
 	}
 	method getNombre() {
 		return nombre
 	}
 }
 object habilidadComposicionLennon {
+	var musico = lennon
 	var nombre = "composicion"
 	var valor = 90
 	
 	method getValor(){
-		return valor
+		return valor * musico.porcentaje()
 	}
 	method getNombre() {
 		return nombre
 	}
 }
 object habilidadCarismaLennon {
+	var musico = lennon
 	var nombre = "carisma"
 	var valor = 80
 	
 	method getValor(){
-		return valor
+		return valor * musico.porcentaje()
 	}
 	method getNombre() {
 		return nombre
@@ -81,7 +88,8 @@ object habilidadCarismaLennon {
 }
 
 object lennon {
-	var habilidades = #{}	
+	var habilidades = #{habilidadCantoLennon,habilidadBajoLennon,habilidadBateriaLennon,habilidadCarismaLennon,
+		habilidadComposicionLennon,habilidadGuitarraLennon,habilidadPianoLennon}	
 	var yokoEstaCerca = false
 	
 	method porcentaje() {
@@ -89,8 +97,7 @@ object lennon {
 	}
 	
 	method getHabilidad(nombreHabilidad){
-		return habilidades.filter({ habilidad => habilidad.getNombre()==nombreHabilidad })
-			.map{ habilidad => habilidad.getValor() }.sum()
+		return habilidades.find({ habilidad => habilidad.getNombre()==nombreHabilidad }).getValor()
 	}
 	method tocaCon(otroMusico){
 		return ((not yokoEstaCerca) && (self.nivelPromedio() > 70))

@@ -3,6 +3,19 @@ import gunsroses.*
 import lennon.*
 import hendrix.*
 
+object habilidadCantoCharly {
+	var musico = charly
+	var nombre = "canto"
+	var valor = 80
+	
+	method getValor(){
+		return valor * musico.getNivelHumor()
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+
 object charly {
 	var canto = 80
 	var guitarra= 60

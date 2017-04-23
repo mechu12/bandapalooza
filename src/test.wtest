@@ -9,28 +9,35 @@ test "Si consulta la hablidad en canto de john, actualmente es de 70" {
 	assert.equals(70, lennon.getHabilidad("canto"))
 
 }
-
-test "jimiHendrix toca con johnLennon ya que su habilidad en piano de ambos no es igual a cero"{
+test"hendrix se dscontrola"{
+	hendrix.descontrol()
 	
+	assert.equals(1,hendrix.getDescontrol())
+}
+
+test"Cuando hendrix se descontrola aumentan sus hablidades"{
+	var cantoHendrix = hendrix.getHabilidad("canto")
+	hendrix.descontrol()
+	hendrix.descontrol()
+	hendrix.descontrol()
+	hendrix.descontrol()
+	hendrix.descontrol()
+	
+	assert.equals(cantoHendrix+5,hendrix.getHabilidad("canto"))
+}
+test "hendrix toca con lennon "{
 	assert.that(hendrix.tocaCon(lennon))
-	
 }
 
-
-test" nivel de descontrol de jimi actual es cero"{
-	
-	assert.equals(0,hendrix.getDescontrol())
-}
-
-test " si yoko esta cerca carisma baja a 64"{
-	
+test " si yoko esta cerca carisma baja un 20%"{
+	var carismaSinYoko = lennon.getHabilidad("carisma")
 	lennon.setYokoEstaCerca(true)	
 	
-	assert.equals(64,lennon.getHabilidad("carisma"))
+	assert.equals(carismaSinYoko*0.8, lennon.getHabilidad("carisma"))
 }
 
 
-test " paul toca con john x q tiene la hablidad canto mayor a la de el"{
+test " paul toca con john ya que este ultimo tiene la hablidad carisma mayor a la de el"{
 	
 	assert.that(paul.tocaCon(lennon))
 	

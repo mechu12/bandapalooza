@@ -3,6 +3,29 @@ import gunsroses.*
 import hendrix.*
 import thebeatles.*
 import lennon.*
+
+object habilidadCantoPaul {
+	var nombre = "canto"
+	var valor = 80
+	method getValor(){
+		return valor
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+
+object habilidadCarismaPaul {
+	var nombre = "carisma"
+	var valor = 60
+	method getValor(){
+		return valor
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+
 object paul {
 	var canto = 80
 	var guitarra= 60
@@ -11,7 +34,8 @@ object paul {
 	var piano = 40
 	var composicion = 95
 	var carisma= 60
-	
+	var habilidades = #{habilidadCarismaPaul,habilidadCantoPaul}
+		
 	method getCanto(){
 		return canto
 	}
@@ -33,10 +57,13 @@ object paul {
 	method getCarisma(){
 		return carisma
 	}
+	method getHabilidad(nombreHabilidad){
+		return habilidades.filter({ habilidad => habilidad.getNombre()==nombreHabilidad })
+			.map{ habilidad => habilidad.getValor() }.sum()
+	}
 	method tocaCon(otroMusico){
-		return ( (bateria  < otroMusico.getBateria() ) ||
-				(piano < otroMusico.getPiano()))
-				/*todos los insturmentos */
+		return habilidades.any{ habilidad =>
+			otroMusico.getHabilidad( habilidad.getNombre() ) > habilidad.getValor() }
 	}
 
 }
