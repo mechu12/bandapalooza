@@ -15,7 +15,7 @@ object habilidadCantoCharly {
 		return nombre
 	}
 }
-
+/*hay q hacer el gethabilidad en todos y */
 object charly {
 	var canto = 80
 	var guitarra= 60
@@ -25,7 +25,7 @@ object charly {
 	var composicion = 95
 	var carisma= 60
 	var nivelDeHumor = 1
-	
+	var habilidades = #{habilidadCantoCharly}
 	method getCanto(){
 		return canto * nivelDeHumor
 	}
@@ -55,6 +55,11 @@ object charly {
 	}
 	method tocaCon(otroMusico){
 		return nivelDeHumor > 0.8
+	}
+	method virtuosismo(){
+		habilidades.fold(0, { maximo, habilidad =>
+     maximo.max( habilidad.getValor() ) })
+
 	}
 
 }

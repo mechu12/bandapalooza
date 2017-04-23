@@ -90,5 +90,10 @@ object hendrix {
 			habilidades.forEach{ habilidad => habilidad.setValor(0) }
 		}
 	}
+	method virtuosismo(){
+		habilidades.fold(0, { maximo, habilidad =>
+     maximo.max( habilidad.getValor() ) })
+
+	}
 
 }

@@ -65,5 +65,10 @@ object paul {
 		return habilidades.any{ habilidad =>
 			otroMusico.getHabilidad( habilidad.getNombre() ) > habilidad.getValor() }
 	}
+	method virtuosismo(){
+		habilidades.fold(0, { maximo, habilidad =>
+     maximo.max( habilidad.getValor() ) })
+
+	}
 
 }

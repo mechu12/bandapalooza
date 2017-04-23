@@ -3,14 +3,14 @@ import charly.*
 import audioslave.*
 import hendrix.*
 object axel {
-	const cachet = 500
+	var cachet = 500
 
 
 }
 object slash{
-	const cachet = 400
+	var cachet = 400
 }
 
 object duff{
-	const cachet = 300
+	var cachet = 300
 }
