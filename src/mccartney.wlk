@@ -1,9 +1,9 @@
 import charly.*
 import gunsroses.*
-import lennon.*
 import hendrix.*
-
-object charly {
+import thebeatles.*
+import lennon.*
+object paul {
 	var canto = 80
 	var guitarra= 60
 	var bateria = 20
@@ -11,19 +11,18 @@ object charly {
 	var piano = 40
 	var composicion = 95
 	var carisma= 60
-	var nivelDeHumor = 1
 	
 	method getCanto(){
-		return canto * nivelDeHumor
+		return canto
 	}
 	method getGuitarra(){
-		return guitarra * nivelDeHumor
+		return guitarra
 	}
 	method getBateria(){
 		return bateria
 	}
 	method getBajo(){
-		return bajo * nivelDeHumor
+		return bajo
 	}
 	method getPiano(){
 		return piano
@@ -34,14 +33,10 @@ object charly {
 	method getCarisma(){
 		return carisma
 	}
-	method getNivelHumor() {
-		return nivelDeHumor
-	}
-	method setNivelHumor(nuevoNivel) {
-		nivelDeHumor = nuevoNivel
-	}
 	method tocaCon(otroMusico){
-		return nivelDeHumor > 0.8
+		return ( (bateria  < otroMusico.getBateria() ) ||
+				(piano < otroMusico.getPiano()))
+				/*todos los insturmentos */
 	}
 
 }
