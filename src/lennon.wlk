@@ -3,7 +3,8 @@ import gunsroses.*
 import hendrix.*
 import thebeatles.*
 
-object habilidadCantoLennon {
+
+object habilidadCanto {
 	var musico = lennon
 	var nombre = "canto"
 	var valor = 70
@@ -14,7 +15,7 @@ object habilidadCantoLennon {
 		return nombre
 	}
 }
-object habilidadGuitarraLennon {
+object habilidadGuitarra {
 	var musico = lennon
 	var nombre = "guitarra"
 	var valor = 40
@@ -26,7 +27,7 @@ object habilidadGuitarraLennon {
 		return nombre
 	}
 }
-object habilidadBateriaLennon {
+object habilidadBateria {
 	var musico = lennon
 	var nombre = "bateria"
 	var valor = 0
@@ -38,7 +39,7 @@ object habilidadBateriaLennon {
 		return nombre
 	}
 }
-object habilidadBajoLennon {
+object habilidadBajo {
 	var musico = lennon
 	var nombre = "bajo"
 	var valor = 60
@@ -50,7 +51,7 @@ object habilidadBajoLennon {
 		return nombre
 	}
 }
-object habilidadPianoLennon {
+object habilidadPiano {
 	var musico = lennon
 	var nombre = "piano"
 	var valor = 50
@@ -62,7 +63,7 @@ object habilidadPianoLennon {
 		return nombre
 	}
 }
-object habilidadComposicionLennon {
+object habilidadComposicion {
 	var musico = lennon
 	var nombre = "composicion"
 	var valor = 90
@@ -74,7 +75,7 @@ object habilidadComposicionLennon {
 		return nombre
 	}
 }
-object habilidadCarismaLennon {
+object habilidadCarisma {
 	var musico = lennon
 	var nombre = "carisma"
 	var valor = 80
@@ -88,14 +89,16 @@ object habilidadCarismaLennon {
 }
 
 object lennon {
-	var habilidades = #{habilidadCantoLennon,habilidadBajoLennon,habilidadBateriaLennon,habilidadCarismaLennon,
-		habilidadComposicionLennon,habilidadGuitarraLennon,habilidadPianoLennon}	
+	var habilidades = #{habilidadCanto,habilidadBajo,habilidadBateria,habilidadCarisma,
+		habilidadComposicion,habilidadGuitarra,habilidadPiano}	
 	var yokoEstaCerca = false
-	
+	var cachet = 0
 	method porcentaje() {
 		return if (not yokoEstaCerca) 1 else 0.8 	
 	}
-	
+	method getCachet(){
+		return cachet
+	}	
 	method getHabilidad(nombreHabilidad){
 		return habilidades.find({ habilidad => habilidad.getNombre()==nombreHabilidad }).getValor()
 	}
@@ -113,11 +116,9 @@ object lennon {
 	}
 	method cantidadHabilidades(){
 		return habilidades.filter({ habilidad => habilidad.getValor() != 0 }).sum()
-	}
-	
+	}	
 	method virtuosismo(){
 		habilidades.fold(0, { maximo, habilidad =>
      maximo.max( habilidad.getValor() ) })
-
 	}
 }

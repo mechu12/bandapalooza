@@ -1,8 +1,9 @@
 import lennon.*
 import mccartney.*
-
+import ringo.*
+import harrison.*
 object beatles {
-	var integrantes = #{lennon, paul}
+	var integrantes = #{lennon, paul,ringo,harrison}
 	method cantidadIntegrantes(){
 		return integrantes.size()
 	}

@@ -15,37 +15,85 @@ object habilidadCantoCharly {
 		return nombre
 	}
 }
-/*hay q hacer el gethabilidad en todos y */
+object habilidadGuitarraCharly {
+	var musico = charly
+	var nombre = "guitarra"
+	var valor = 80
+	
+	method getValor(){
+		return valor * musico.getNivelHumor()
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+object habilidadBateriaCharly {
+	var musico = charly
+	var nombre = "bateria"
+	var valor = 20
+	
+	method getValor(){
+		return valor * musico.getNivelHumor()
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+object habilidadBajoCharly {
+	var musico = charly
+	var nombre = "bajo"
+	var valor = 70
+	
+	method getValor(){
+		return valor * musico.getNivelHumor()
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+object habilidadPianoCharly {
+	var musico = charly
+	var nombre = "piano"
+	var valor = 40
+	
+	method getValor(){
+		return valor * musico.getNivelHumor()
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+object habilidadComposicionCharly {
+	var musico = charly
+	var nombre = "composicion"
+	var valor = 95
+	
+	method getValor(){
+		return valor * musico.getNivelHumor()
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+object habilidadCarismaCharly {
+	var musico = charly
+	var nombre = "carisma"
+	var valor = 60
+	
+	method getValor(){
+		return valor * musico.getNivelHumor()
+	}
+	method getNombre() {
+		return nombre
+	}
+}
 object charly {
-	var canto = 80
-	var guitarra= 60
-	var bateria = 20
-	var bajo = 70
-	var piano = 40
-	var composicion = 95
-	var carisma= 60
+	var cachet = 10.000
 	var nivelDeHumor = 1
 	var habilidades = #{habilidadCantoCharly}
-	method getCanto(){
-		return canto * nivelDeHumor
-	}
-	method getGuitarra(){
-		return guitarra * nivelDeHumor
-	}
-	method getBateria(){
-		return bateria
-	}
-	method getBajo(){
-		return bajo * nivelDeHumor
-	}
-	method getPiano(){
-		return piano
-	}
-	method getComposicion(){
-		return composicion
-	}
-	method getCarisma(){
-		return carisma
+
+	method getHabilidad(nombreHabilidad){
+		return habilidades.find({ habilidad => habilidad.getNombre()==nombreHabilidad }).getValor()
 	}
 	method getNivelHumor() {
 		return nivelDeHumor
@@ -59,7 +107,9 @@ object charly {
 	method virtuosismo(){
 		habilidades.fold(0, { maximo, habilidad =>
      maximo.max( habilidad.getValor() ) })
-
 	}
-
+	method getCachet(){
+		return cachet
+	}
+	
 }

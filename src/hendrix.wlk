@@ -36,41 +36,93 @@ object habilidadPianoHendrix {
 		valor = 100.min(valor + aumento)
 	}
 }
+object habilidadGuitarraHendrix {
+	var nombre = "guitarra"
+	var valor = 90
+	method getValor(){
+		return valor
+	}
+	method setValor(nuevoValor){
+		valor = nuevoValor
+	}
+	method getNombre() {
+		return nombre
+	}
+	method incrementar(aumento) {
+		valor = 100.min(valor + aumento)
+	}
+}
+object habilidadBateriaHendrix {
+	var nombre = "bateria"
+	var valor = 0
+	method getValor(){
+		return valor
+	}
+	method setValor(nuevoValor){
+		valor = nuevoValor
+	}
+	method getNombre() {
+		return nombre
+	}
+	method incrementar(aumento) {
+		valor = 100.min(valor + aumento)
+	}
+}
+object habilidadBajoHendrix {
+	var nombre = "bajo"
+	var valor = 60
+	method getValor(){
+		return valor
+	}
+	method setValor(nuevoValor){
+		valor = nuevoValor
+	}
+	method getNombre() {
+		return nombre
+	}
+	method incrementar(aumento) {
+		valor = 100.min(valor + aumento)
+	}
+}
+object habilidadComposicionHendrix {
+	var nombre = "composicion"
+	var valor = 80
+	method getValor(){
+		return valor
+	}
+	method setValor(nuevoValor){
+		valor = nuevoValor
+	}
+	method getNombre() {
+		return nombre
+	}
+	method incrementar(aumento) {
+		valor = 100.min(valor + aumento)
+	}
+}
+object habilidaddCarismaHendrix {
+	var nombre = "carisma"
+	var valor = 60
+	method getValor(){
+		return valor
+	}
+	method setValor(nuevoValor){
+		valor = nuevoValor
+	}
+	method getNombre() {
+		return nombre
+	}
+	method incrementar(aumento) {
+		valor = 100.min(valor + aumento)
+	}
+}
 object hendrix {
-	var canto = 70 
-	var guitarra = 90
-	var bateria = 0
-	var bajo=60
-	var piano = 0
-	var composicion = 80
-	var carisma = 60
 	var nivelDescontrol = 0
-	var habilidades = #{habilidadCantoHendrix,habilidadPianoHendrix}
-	
+	var habilidades = #{habilidadCantoHendrix,habilidadPianoHendrix,habilidadBateriaHendrix,
+		habilidadComposicionHendrix,habilidadGuitarraHendrix,habilidaddCarismaHendrix,habilidadPianoHendrix}
+	var cachet= 0
 	method getHabilidad(nombreHabilidad){
 		return habilidades.find({ habilidad => habilidad.getNombre()==nombreHabilidad }).getValor()
-	}
-	
-	method getCanto(){
-		return canto
-	}
-	method getGuitarra(){
-		return guitarra
-	}
-	method getBateria(){
-		return bateria
-	}
-	method getBajo(){
-		return bajo
-	}
-	method getPiano(){
-		return piano
-	}
-	method getComposicion(){
-		return composicion
-	}
-	method getCarisma(){
-		return carisma
 	}
 	method getDescontrol(){
 		return nivelDescontrol
@@ -93,7 +145,9 @@ object hendrix {
 	method virtuosismo(){
 		habilidades.fold(0, { maximo, habilidad =>
      maximo.max( habilidad.getValor() ) })
-
 	}
-
+	method getCachet(){
+		return cachet
+	}
+	
 }

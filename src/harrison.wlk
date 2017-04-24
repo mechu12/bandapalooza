@@ -1,9 +1,11 @@
+import thebeatles.*
 import charly.*
-import gunsroses.*
 import hendrix.*
-object habilidadCarismaAxel{
+import gunsroses.*
+
+  object habilidadCarisma {
 	var nombre = "carisma"
-	var valor = 80
+	var valor = 60
 	method getValor(){
 		return valor
 	}
@@ -11,7 +13,7 @@ object habilidadCarismaAxel{
 		return nombre
 	}
 }
-object habilidadComposicionAxel{
+ object habilidadComposicion {
 	var nombre = "composicion"
 	var valor = 75
 	method getValor(){
@@ -21,28 +23,8 @@ object habilidadComposicionAxel{
 		return nombre
 	}
 }
-object habilidadPianoAxel{
+ object habilidadPiano {
 	var nombre = "piano"
-	var valor = 70
-	method getValor(){
-		return valor
-	}
-	method getNombre() {
-		return nombre
-	}
-}
-object habilidadCantoAxel{
-	var nombre = "canto"
-	var valor = 90
-	method getValor(){
-		return valor
-	}
-	method getNombre() {
-		return nombre
-	}
-}
-object habilidadGuitarraAxel{
-	var nombre = "guitarra"
 	var valor = 0
 	method getValor(){
 		return valor
@@ -51,7 +33,37 @@ object habilidadGuitarraAxel{
 		return nombre
 	}
 }
-object habilidadBateriaAxel{
+ object habilidadCanto {
+	var nombre = "canto"
+	var valor = 60
+	method getValor(){
+		return valor
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+ object habilidadGuitarra {
+	var nombre = "guitarra"
+	var valor = 70
+	method getValor(){
+		return valor
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+ object habilidadBajo {
+	var nombre = "bajo"
+	var valor = 50
+	method getValor(){
+		return valor
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+object habilidadBateria{
 	var nombre = "bateria"
 	var valor = 0
 	method getValor(){
@@ -61,29 +73,15 @@ object habilidadBateriaAxel{
 		return nombre
 	}
 }
-object habilidadBajoAxel{
-	var nombre = "bajo"
-	var valor = 0
-	method getValor(){
-		return valor
-	}
-	method getNombre() {
-		return nombre
-	}
-}
-object axelRose {
-	 var cachet = 500.000
-	 var habilidades = #{habilidadBajoAxel,habilidadBateriaAxel,habilidadCantoAxel,
-	 	habilidadCarismaAxel,habilidadComposicionAxel,habilidadGuitarraAxel,habilidadPianoAxel}
+object harrison{
+	var cachet = 0
+	var habilidades=#{habilidadBajo,habilidadBateria,habilidadCanto,habilidadCarisma,
+		habilidadComposicion,habilidadGuitarra,habilidadPiano}
 	method tocaCon(otroMusico){
-		return self.getCachet() > otroMusico.getCachet()
+		return true
 	}
 	method getCachet(){
 		return cachet
-	}
-	method virtuosismo(){
-		habilidades.fold(0, { maximo, habilidad =>
-     maximo.max( habilidad.getValor() ) })
 	}
 	method sumaHabilidades(){
 		return habilidades.map{ habilidad => habilidad.getValor() }.sum()
@@ -97,4 +95,6 @@ object axelRose {
 	method getHabilidad(nombreHabilidad){
 		return habilidades.find({ habilidad => habilidad.getNombre()==nombreHabilidad }).getValor()
 	}
+
+
 }

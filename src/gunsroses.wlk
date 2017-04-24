@@ -1,16 +1,35 @@
-import beatles.*
+import thebeatles.*
 import charly.*
-import audioslave.*
 import hendrix.*
-object axel {
-	var cachet = 500
+import axelRose.*
+import duff.*
+import ringo.*
+import slash.*
 
-
-}
-object slash{
-	var cachet = 400
-}
-
-object duff{
-	var cachet = 300
+object gunsnroses{
+	var integrantes = #{duffMc,axelRose,slash}
+	method cantidadIntegrantes(){
+		return integrantes.size()
+	}
+	method despedirIntegrante(integrante){
+		integrantes.remove(integrante)
+	}
+	method contratarIntegrante(integrante){
+		integrantes.add(integrante)
+	}
+	method virtuosismo(){
+		return (integrantes.map{integrante => integrante.virtuosismo()} .sum() / self.cantidadIntegrantes()) *1.1
+	}
+	method marketing(){
+		return integrantes.map{integrante => integrante.getHabilidad("carisma")}.sum() * 1.1
+	}
+	method contratable(){
+		return false
+	}
+	method sacarMusico(musico) {
+		return false
+	}
+	method agregarMusico(musico) {
+		return false
+	}
 }

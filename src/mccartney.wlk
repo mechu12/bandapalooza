@@ -25,37 +25,62 @@ object habilidadCarismaPaul {
 		return nombre
 	}
 }
-
+object habilidadGuitarraPaul {
+	var nombre = "guitarra"
+	var valor = 60
+	method getValor(){
+		return valor
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+object habilidadBateriaPaul {
+	var nombre = "bateria"
+	var valor = 20
+	method getValor(){
+		return valor
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+object habilidadBajoPaul {
+	var nombre = "bajo"
+	var valor = 70
+	method getValor(){
+		return valor
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+object habilidadPianoPaul {
+	var nombre = "piano"
+	var valor = 40
+	method getValor(){
+		return valor
+	}
+	method getNombre() {
+		return nombre
+	}
+}
+object habilidadComposicionPaul {
+	var nombre = "carisma"
+	var valor = 95
+	method getValor(){
+		return valor
+	}
+	method getNombre() {
+		return nombre
+	}
+}
 object paul {
-	var canto = 80
-	var guitarra= 60
-	var bateria = 20
-	var bajo = 70
-	var piano = 40
-	var composicion = 95
-	var carisma= 60
 	var habilidades = #{habilidadCarismaPaul,habilidadCantoPaul}
-		
-	method getCanto(){
-		return canto
-	}
-	method getGuitarra(){
-		return guitarra
-	}
-	method getBateria(){
-		return bateria
-	}
-	method getBajo(){
-		return bajo
-	}
-	method getPiano(){
-		return piano
-	}
-	method getComposicion(){
-		return composicion
-	}
-	method getCarisma(){
-		return carisma
+	var cachet=600.000
+	
+	method getCachet(){
+		return cachet
 	}
 	method getHabilidad(nombreHabilidad){
 		return habilidades.filter({ habilidad => habilidad.getNombre()==nombreHabilidad })
@@ -68,7 +93,15 @@ object paul {
 	method virtuosismo(){
 		habilidades.fold(0, { maximo, habilidad =>
      maximo.max( habilidad.getValor() ) })
-
+	}
+	method sumaHabilidades(){
+		return habilidades.map{ habilidad => habilidad.getValor() }.sum()
+	}
+	method nivelPromedio(){
+		return (self.sumaHabilidades() / self.cantidadHabilidades())
+	}
+	method cantidadHabilidades(){
+		return habilidades.filter({ habilidad => habilidad.getValor() != 0 }).sum()
 	}
 
 }
