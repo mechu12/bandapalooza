@@ -2,6 +2,7 @@ import lennon.*
 import mccartney.*
 import ringo.*
 import harrison.*
+
 object beatles {
 	var integrantes = #{lennon, paul,ringo,harrison}
 	method cantidadIntegrantes(){
@@ -16,11 +17,11 @@ object beatles {
 	method contratable(){
 		return false
 	}
-	method sacarMusico(musico) {
-		return false
+	method despedirIntegrante(integrante){
+	throw new Exception("Es una banda legendaria no se pueden despedir integrantes")
 	}
-	method agregarMusico(musico) {
-		return false
-	}	
+	method contratarIntegrante(integrante){
+		throw new Exception("Es una banda legendaria no se pueden contratar integrantes")
+		}
 	
 }

@@ -6,19 +6,19 @@ object audioslave {
 		return integrantes.size()
 	}
 	method virtuosismo(){
-		return (integrantes.map{integrante => integrante.virtuosismo()} .sum() / self.cantidadIntegrantes()) 
+		return 0
 	}
 	method marketing(){
-		return integrantes.map{integrante => integrante.getHabilidad("carisma")}.sum()
+		return 0
 	}
 	method contratable(){
 		return false
 	}
-	method sacarMusico(musico) {
-		return false
+	method despedirIntegrante(integrante){
+		throw new Exception("Es una banda disuelta no se pueden despedir integrantes")
 	}
-	method agregarMusico(musico) {
-		return false
-	}	
+	method contratarIntegrante(integrante){
+		throw new Exception("Es una banda disuelta no se pueden contratar integrantes")	
+		}	
 	
 }

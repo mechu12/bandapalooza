@@ -73,7 +73,7 @@ object habilidadBateria{
 	}
 }
  
-object duffMc {
+object duff{
 	var cachet = 300.000
 	var habilidades=#{habilidadBajo,habilidadBateria,habilidadCanto,habilidadCarisma,
 		habilidadComposicion,habilidadGuitarra,habilidadPiano}
@@ -90,7 +90,7 @@ object duffMc {
 		return (self.sumaHabilidades() / self.cantidadHabilidades())
 	}
 	method cantidadHabilidades(){
-		return habilidades.filter({ habilidad => habilidad.getValor() != 0 }).sum()
+		return habilidades.filter({ habilidad => habilidad.getValor() != 0 }).size()
 	}
 	method getHabilidad(nombreHabilidad){
 		return habilidades.find({ habilidad => habilidad.getNombre()==nombreHabilidad }).getValor()

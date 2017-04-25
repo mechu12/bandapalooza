@@ -2,6 +2,8 @@ import charly.*
 import gunsroses.*
 import hendrix.*
 import thebeatles.*
+import cornell.*
+import morello.*
  object habilidadCarisma {
 	var nombre = "carisma"
 	var valor = 70
@@ -89,7 +91,7 @@ object ringo {
 		return (self.sumaHabilidades() / self.cantidadHabilidades())
 	}
 	method cantidadHabilidades(){
-		return habilidades.filter({ habilidad => habilidad.getValor() != 0 }).sum()
+		return habilidades.filter({ habilidad => habilidad.getValor() != 0 }).size()
 	}
 	method getHabilidad(nombreHabilidad){
 		return habilidades.find({ habilidad => habilidad.getNombre()==nombreHabilidad }).getValor()

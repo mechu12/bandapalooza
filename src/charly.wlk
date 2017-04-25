@@ -90,7 +90,8 @@ object habilidadCarismaCharly {
 object charly {
 	var cachet = 10.000
 	var nivelDeHumor = 1
-	var habilidades = #{habilidadCantoCharly}
+	var habilidades = #{habilidadCantoCharly,habilidadBajoCharly,habilidadBateriaCharly,
+		habilidadCarismaCharly,habilidadComposicionCharly,habilidadPianoCharly,habilidadGuitarraCharly}
 
 	method getHabilidad(nombreHabilidad){
 		return habilidades.find({ habilidad => habilidad.getNombre()==nombreHabilidad }).getValor()
@@ -111,5 +112,15 @@ object charly {
 	method getCachet(){
 		return cachet
 	}
+		method sumaHabilidades(){
+		return habilidades.map{ habilidad => habilidad.getValor() }.sum()
+	}
+	method nivelPromedio(){
+		return (self.sumaHabilidades() / self.cantidadHabilidades())
+	}
+	method cantidadHabilidades(){
+		return habilidades.filter({ habilidad => habilidad.getValor() != 0 }).size()
+	}
+	
 	
 }

@@ -77,7 +77,7 @@ object slash {
 	var habilidades = #{habilidadBajo,habilidadCanto,habilidadCarisma,habilidadCarisma,
 		habilidadComposicion,habilidadGuitarra,habilidadPiano}
 	method tocaCon(otroMusico){
-		return habilidades.any{habilidad => otroMusico.getHabilidad(habilidad.getNombre("carisma") >= habilidad.getHabilidad("carisma"))}	
+		return self.getHabilidad("carisma") >= otroMusico.getHabilidad("carisma")
 	}
 	method getCachet(){
 		return cachet
@@ -89,7 +89,7 @@ object slash {
 		return (self.sumaHabilidades() / self.cantidadHabilidades())
 	}
 	method cantidadHabilidades(){
-		return habilidades.filter({ habilidad => habilidad.getValor() != 0 }).sum()
+		return habilidades.filter({ habilidad => habilidad.getValor() != 0 }).size()
 	}
 	method getHabilidad(nombreHabilidad){
 		return habilidades.find({ habilidad => habilidad.getNombre()==nombreHabilidad }).getValor()

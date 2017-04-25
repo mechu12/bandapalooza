@@ -103,7 +103,7 @@ object lennon {
 		return habilidades.find({ habilidad => habilidad.getNombre()==nombreHabilidad }).getValor()
 	}
 	method tocaCon(otroMusico){
-		return ((not yokoEstaCerca) && (self.nivelPromedio() > 70))
+		return ((not yokoEstaCerca) and (otroMusico.nivelPromedio() > 70))
 	}
 	method setYokoEstaCerca(estaCerca){
 		yokoEstaCerca = estaCerca
@@ -115,7 +115,7 @@ object lennon {
 		return (self.sumaHabilidades() / self.cantidadHabilidades())
 	}
 	method cantidadHabilidades(){
-		return habilidades.filter({ habilidad => habilidad.getValor() != 0 }).sum()
+		return habilidades.filter{ habilidad => habilidad.getValor() != 0 }.size()
 	}	
 	method virtuosismo(){
 		habilidades.fold(0, { maximo, habilidad =>

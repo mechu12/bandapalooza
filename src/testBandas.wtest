@@ -1,0 +1,48 @@
+import audioslave.*
+import gunsroses.*
+import thebeatles.*
+import hendrix.*
+import ringo.*
+import duff.*
+import axelRose.*
+import slash.*
+
+test "la valoracion de marketing de los beatles es 297" {
+
+	assert.equals(297, beatles.marketing())
+
+}
+test "los beatles no aceptan nuevos integrantes" {
+
+	assert.throwsException({ => beatles.contratarIntegrante(hendrix)})
+
+}
+
+test "la valoracion de marketing de audioslave es 0" {
+
+	assert.equals(0, audioslave.marketing())
+
+}
+test "audioslave no despide integrantes" {
+
+	assert.throwsException({ => audioslave.despedirIntegrante(hendrix)})
+
+}
+test "hendrix no puede entrar a g´n´r ya que su nivel de carisma es inferior a los del resto de la banda"{
+	gunsnroses.contratarIntegrante(hendrix)
+	assert.notThat(gunsnroses.esParteDeLaBanda(hendrix))
+}
+test "ringo es aceptado como nuevo integrante de la banda gnsroses reemplazando a duff por que es mas carismatico"{
+	gunsnroses.contratarIntegrante(ringo)
+	assert.that(gunsnroses.esParteDeLaBanda(ringo))
+	assert.notThat(gunsnroses.esParteDeLaBanda(duff))
+}
+test "la banda se disuelve si axel sale"{
+	gunsnroses.despedirIntegrante(axelRose)
+	assert.equals(0, gunsnroses.cantidadIntegrantes())
+}
+test "el valor de contratacion se quintuplica si slash esta en la banda"{
+	var valorContrataionConSlash = gunsnroses.valorContratacion()
+	gunsnroses.despedirIntegrante(slash)
+	assert.equals(valorContrataionConSlash/5-slash.getCachet(), gunsnroses.valorContratacion())
+}

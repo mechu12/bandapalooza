@@ -3,6 +3,8 @@ import gunsroses.*
 import hendrix.*
 import thebeatles.*
 import lennon.*
+import cornell.*
+import morello.*
 
 object habilidadCantoPaul {
 	var nombre = "canto"
@@ -76,7 +78,8 @@ object habilidadComposicionPaul {
 	}
 }
 object paul {
-	var habilidades = #{habilidadCarismaPaul,habilidadCantoPaul}
+	var habilidades = #{habilidadCarismaPaul,habilidadCantoPaul,habilidadBajoPaul,habilidadBateriaPaul
+		,habilidadComposicionPaul,habilidadGuitarraPaul,habilidadPianoPaul}
 	var cachet=600.000
 	
 	method getCachet(){
@@ -101,7 +104,7 @@ object paul {
 		return (self.sumaHabilidades() / self.cantidadHabilidades())
 	}
 	method cantidadHabilidades(){
-		return habilidades.filter({ habilidad => habilidad.getValor() != 0 }).sum()
+		return habilidades.filter({ habilidad => habilidad.getValor() != 0 }).size()
 	}
 
 }

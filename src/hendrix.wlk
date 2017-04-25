@@ -149,5 +149,14 @@ object hendrix {
 	method getCachet(){
 		return cachet
 	}
+		method sumaHabilidades(){
+		return habilidades.map{ habilidad => habilidad.getValor() }.sum()
+	}
+	method nivelPromedio(){
+		return (self.sumaHabilidades() / self.cantidadHabilidades())
+	}
+	method cantidadHabilidades(){
+		return habilidades.filter({ habilidad => habilidad.getValor() != 0 }).size()
+	}
 	
 }
